@@ -1,6 +1,6 @@
 import { ExtrinsicPQ } from "./Interfaces.ts";
 import { RemoveFromEmptyError, NoElementError } from "./Errors.ts";
-import { Node } from "./Utilities.ts";
+import { PQNode } from "./Utilities.ts";
 
 enum Relation {
   PARENT,
@@ -13,7 +13,7 @@ export class ArrayHeapPQ<T> implements ExtrinsicPQ<T> {
   // CLASS/INSTANCE VARIABLES
   // = = = = = = = = = = = = =
 
-  private _nodes: Array<Node<T>>;
+  private _nodes: Array<PQNode<T>>;
   private _locations: Map<T, number>;
   private _max: boolean;
 
@@ -30,7 +30,7 @@ export class ArrayHeapPQ<T> implements ExtrinsicPQ<T> {
    * @param isMax whether to make a maximum priority queue or not
    */
   constructor(isMax?: boolean) {
-    this._nodes = new Array<Node<T>>(1);
+    this._nodes = new Array<PQNode<T>>(1);
     // this._nodes.push(null); // Invariant: First element is always null
     this._locations = new Map<T, number>();
     this._max = isMax ? true : false;
@@ -49,7 +49,7 @@ export class ArrayHeapPQ<T> implements ExtrinsicPQ<T> {
     if (this._max) {
       priority *= -1;
     }
-    this._nodes.push(new Node(item, priority));
+    this._nodes.push(new PQNode(item, priority));
     this._locations.set(item, this._nodes.length - 1);
     this._swim(this._nodes.length - 1);
   }
@@ -65,7 +65,7 @@ export class ArrayHeapPQ<T> implements ExtrinsicPQ<T> {
 
   remove(): T {
     this._validateSize();
-    let smallest: Node<T>;
+    let smallest: PQNode<T>;
     if (this.size() === 1) {
       smallest = this._nodes.splice(1, 1)[0];
     } else {
@@ -128,7 +128,7 @@ export class ArrayHeapPQ<T> implements ExtrinsicPQ<T> {
    * Gets the index of the specified relation.
    * 
    * Is not safe (i.e. might cause an error by trying to access an index 
-   * not present in the list of Nodes). If the given Relation is invalid,
+   * not present in the list of PQNodes). If the given Relation is invalid,
    * returns 0.
    *
    * @param index    The index whose relation's index is to be queried.

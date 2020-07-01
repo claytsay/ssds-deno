@@ -5,7 +5,7 @@ import {
   assertThrows,
 } from "https://deno.land/std/testing/asserts.ts";
 
-Deno.test("addRemoveFirst", () => {
+Deno.test("LinkedListDeque.addRemoveFirst", () => {
   let deque: LinkedListDeque<number> = new LinkedListDeque<number>();
   deque.addFirst(3);
   deque.addFirst(2);
@@ -19,7 +19,7 @@ Deno.test("addRemoveFirst", () => {
   assertEquals(deque.get(0), 2);
 });
 
-Deno.test("addRemoveLast", () => {
+Deno.test("LinkedListDeque.addRemoveLast", () => {
   let deque: LinkedListDeque<number> = new LinkedListDeque<number>();
   deque.addLast(0);
   deque.addLast(1);
@@ -38,14 +38,14 @@ Deno.test("addRemoveLast", () => {
   }, IndexOutOfBoundsError);
 });
 
-Deno.test("isEmpty", () => {
+Deno.test("LinkedListDeque.isEmpty", () => {
 });
 
-Deno.test("size", () => {
+Deno.test("LinkedListDeque.size", () => {
 });
 
-Deno.test("printDeque", () => {
+Deno.test("LinkedListDeque.printDeque", () => {
 });
 
-Deno.test("get", () => {
+Deno.test("LinkedListDeque.get", () => {
 });

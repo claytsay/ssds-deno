@@ -5,7 +5,7 @@ import {
   assertThrows,
 } from "https://deno.land/std/testing/asserts.ts";
 
-Deno.test("addRemoveFirst", () => {
+Deno.test("ArrayDeque.addRemoveFirst", () => {
   let deque: ArrayDeque<number> = new ArrayDeque<number>();
   deque.addFirst(3);
   deque.addFirst(2);
@@ -19,7 +19,7 @@ Deno.test("addRemoveFirst", () => {
   assertEquals(2, deque.get(0));
 });
 
-Deno.test("addRemoveLast", () => {
+Deno.test("ArrayDeque.addRemoveLast", () => {
   let deque: ArrayDeque<number> = new ArrayDeque<number>();
   deque.addLast(0);
   deque.addLast(1);
@@ -38,16 +38,16 @@ Deno.test("addRemoveLast", () => {
   }, IndexOutOfBoundsError);
 });
 
-Deno.test("isEmpty", () => {
+Deno.test("ArrayDeque.isEmpty", () => {
 });
 
-Deno.test("size", () => {
+Deno.test("ArrayDeque.size", () => {
 });
 
-Deno.test("printDeque", () => {
+Deno.test("ArrayDeque.printDeque", () => {
 });
 
-Deno.test("get", () => {
+Deno.test("ArrayDeque.get", () => {
   let deque: ArrayDeque<number> = new ArrayDeque<number>();
   for (let i: number = 0; i < 100; i++) {
     deque.addLast(i);
@@ -69,14 +69,14 @@ Deno.test("get", () => {
   assertEquals(4, deque2.removeLast());
 });
 
-Deno.test("addMega", () => {
+Deno.test("ArrayDeque.addMega", () => {
   let deque: ArrayDeque<number> = new ArrayDeque<number>();
   for (let i: number = 0; i < 65536; i++) {
     deque.addLast(i);
   }
 });
 
-Deno.test("addRemoveMega", () => {
+Deno.test("ArrayDeque.addRemoveMega", () => {
   let n: number = 65536;
   let deque: ArrayDeque<number> = new ArrayDeque<number>();
   for (let i: number = 0; i < n; i++) {
@@ -87,7 +87,7 @@ Deno.test("addRemoveMega", () => {
   }
 });
 
-Deno.test("randomMega", () => {
+Deno.test("AraryDeque.randomMega", () => {
   let deque: ArrayDeque<number> = new ArrayDeque<number>();
   for (let i: number = 0; i < 65536; i++) {
     switch (Math.floor(Math.random() * 4)) {
@@ -119,7 +119,7 @@ Deno.test("randomMega", () => {
   }
 });
 
-Deno.test("deepCopy", () => {
+Deno.test("ArrayDeque.deepCopy", () => {
   let deque: ArrayDeque<number> = new ArrayDeque<number>();
   for (let i: number = 0; i < 20; i++) {
     deque.addLast(i);

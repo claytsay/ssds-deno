@@ -1,5 +1,5 @@
 import { ExtrinsicPQ } from "./Interfaces.ts";
-import { Node } from "./Utilities.ts";
+import { PQNode } from "./Utilities.ts";
 import { RemoveFromEmptyError, NoElementError } from "./Errors.ts";
 
 /**
@@ -9,7 +9,7 @@ import { RemoveFromEmptyError, NoElementError } from "./Errors.ts";
  * of better priority queue implementations.
  */
 export class ReferencePQ<T> implements ExtrinsicPQ<T> {
-  private _nodes: Array<Node<T>>;
+  private _nodes: Array<PQNode<T>>;
   private _max: boolean;
 
   /**
@@ -21,7 +21,7 @@ export class ReferencePQ<T> implements ExtrinsicPQ<T> {
    * @param isMax whether to make a maximum priority queue or not
    */
   constructor(isMax?: boolean) {
-    this._nodes = new Array<Node<T>>();
+    this._nodes = new Array<PQNode<T>>();
     this._max = isMax ? true : false;
   }
 
@@ -29,7 +29,7 @@ export class ReferencePQ<T> implements ExtrinsicPQ<T> {
     if (this._max) {
       priority *= -1;
     }
-    this._nodes.push(new Node(item, priority));
+    this._nodes.push(new PQNode(item, priority));
   }
 
   contains(item: T): boolean {

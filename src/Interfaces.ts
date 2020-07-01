@@ -1,4 +1,8 @@
 /**
+ * Defines the methods of various data structures.
+ */
+
+/**
  * Defines the behaviour of a double-ended queue (deque).
  */
 export interface Deque<T> {
@@ -59,7 +63,6 @@ export interface Deque<T> {
  * extrinsically.
  */
 export interface ExtrinsicPQ<T> {
-
   /**
    * Adds an item with the given priority value.
    * 
@@ -115,4 +118,11 @@ export interface ExtrinsicPQ<T> {
    * @throws NoElementError if the item doesn't exist.
    */
   changePriority(item: T, priority: number): void;
+}
+
+/**
+ * Represents a set of points.
+ */
+export interface PointSet {
+  nearest(point: Array<number>): Array<number>;
 }

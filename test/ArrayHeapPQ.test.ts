@@ -35,7 +35,7 @@ const METHOD_ENUMS: Array<Method> = [
 // TESTS
 // = = = = = = = = = = = = =
 
-Deno.test("testBasicTree", () => {
+Deno.test("ArrayHeapPQ.testBasicTree", () => {
   /* This method is meant to be used with a debugger to see what
         happens inside the ArrayHeapMinPQ. */
   let ahpq: ExtrinsicPQ<number> = new ArrayHeapPQ<number>();
@@ -48,7 +48,7 @@ Deno.test("testBasicTree", () => {
   ahpq.add(2, 2);
 });
 
-Deno.test("testRandom", () => {
+Deno.test("ArrayHeapPQ.testRandom", () => {
   let ahpq: ExtrinsicPQ<number> = new ArrayHeapPQ<number>();
   let npq: ExtrinsicPQ<number> = new ReferencePQ<number>();
   let map: Map<number, number> = new Map<number, number>();
@@ -120,7 +120,7 @@ Deno.test("testRandom", () => {
   }
 });
 
-Deno.test("testTime", () => {
+Deno.test("ArrayHeapPQ.testTime", () => {
   // Test parameters
   let maxOps: number = 5000;
   let numTrials: number = 6;
